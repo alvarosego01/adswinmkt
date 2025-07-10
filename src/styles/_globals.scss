@@ -1,0 +1,42 @@
+$xs: 400px;
+$sm: 640px;
+$md: 768px;
+$pcTab: 1000px;
+$lg: 1199px;
+$xl: 1500px;
+
+@mixin _resp($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: ($xs)) { @content; }
+  } @else if $breakpoint == sm {
+    @media (min-width: ($xs + 1)) and (max-width: ($sm)) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: ($sm + 1)) and (max-width: ($md)) { @content; }
+  } @else if $breakpoint == pcTab {
+    @media (min-width: ($md + 1)) and (max-width: ($pcTab)) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: ($pcTab + 1)) and (max-width: ($lg)) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: ($lg + 1)) and (max-width: ($xl)) { @content; }
+  } @else if $breakpoint == 2xl {
+    @media (min-width: ($xl + 1)) { @content; }
+  }
+}
+
+@mixin responsivoSpecial($desde, $hasta) {
+  @media only screen and (min-width: $desde) and (max-width: $hasta) {
+    @content;
+  }
+}
+
+$primaryBlue: #2b74e7;
+$white: #ffffff;
+$lightGray: #f4f4f4;
+$greyGray2: #e0e0e0;
+$purple: #4a00e0;
+$darkGray: #2b2b2b;
+
+@font-face {
+  font-family: 'arial-rounded';
+  src: url('../fonts/ARLRDBD.TTF') format('truetype');
+}

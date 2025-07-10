@@ -1,0 +1,121 @@
+// @use ' as
+// @use 'blog' as *;
+
+@import 'globals';
+@import 'blog';
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+button,
+label,
+input,
+textarea,
+select {
+  font-family: 'arial-rounded', sans-serif !important;
+}
+
+.primary-button {
+  background-color: $primaryBlue !important;
+  border: 1px solid $primaryBlue !important;
+  border-radius: 15px !important;
+  transition: all 0.25s ease-in-out !important;
+
+  span,
+  i {
+    color: $lightGray !important;
+
+  }
+
+  &:hover {
+    background-color: $lightGray !important;
+    transform: scale(1.05);
+
+    span,
+    i {
+      color: $primaryBlue !important;
+
+    }
+
+  }
+
+}
+
+.secondary-button {
+  border-radius: 15px !important;
+  background-color: $lightGray !important;
+  border: 1px solid $darkGray !important;
+  transition: all 0.25s ease-in-out !important;
+
+  span, i {
+    color: $darkGray!important;
+
+  }
+
+  &:hover {
+    border: 1px solid $purple !important;
+    transform: scale(1.05);
+
+    span,
+    i {
+      color: $purple !important;
+
+    }
+
+  }
+
+}
+
+.flex {
+	display: flex;
+}
+
+.block {
+	display: block;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.mt-auto {
+	margin-top: auto;
+}
+
+.mx-auto {
+	margin-left: auto!important;
+	margin-right: auto!important;
+}
+
+:has(> .parent-mt-auto) {
+  margin-top: auto;
+}
+
+.fab {
+    font-family: "Font Awesome 5 Brands"!important;
+}
+
+.form-custom input {
+	height: 50px!important;
+	font-size: 14px!important;
+}
+
+.form-custom select {
+	height: 50px!important;
+	font-size: 14px!important;
+}
+
+.form-custom label {
+font-size: 15px!important;
+}
+
+.searchform .fusion-search-form-content .fusion-search-button input[type=submit] {
+	font-family: awb-icons!important
+}
