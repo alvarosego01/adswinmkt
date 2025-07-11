@@ -119,3 +119,20 @@ font-size: 15px!important;
 .searchform .fusion-search-form-content .fusion-search-button input[type=submit] {
 	font-family: awb-icons!important
 }
+
+
+.header-content {
+  @include _resp(pcTab) {
+    width: 90%!important;
+  }
+  @include _resp(lg) {
+    width: 90%!important;
+  }
+  @include _resp(xl) {
+    width: 1500px!important;
+  }
+  @include _resp(2xl) {
+    width: 1750px!important;
+  }
+
+}
