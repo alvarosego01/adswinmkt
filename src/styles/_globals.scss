@@ -37,7 +37,12 @@ $greyGray2: #e0e0e0;
 $purple: #4a00e0;
 $darkGray: #2b2b2b;
 
+// @font-face {
+//   font-family: 'arial-rounded';
+//   src: url('../fonts/ARLRDBD.TTF') format('truetype');
+// }
+
 @font-face {
-  font-family: 'arial-rounded';
-  src: url('../fonts/ARLRDBD.TTF') format('truetype');
+  font-family: 'dinot-font';
+  src: url('../fonts/dinot-light.TTF') format('truetype');
 }

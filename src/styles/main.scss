@@ -4,6 +4,13 @@
 @import 'globals';
 @import 'blog';
 
+*.title-dinot {
+  font-family: 'dinot-font', sans-serif !important;
+  * {
+    font-family: 'dinot-font', sans-serif !important;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -20,6 +27,7 @@ textarea,
 select {
   font-family: 'arial-rounded', sans-serif !important;
 }
+
 
 .primary-button {
   background-color: $primaryBlue !important;
@@ -137,6 +145,7 @@ select {
     padding: 0;
     border: none !important;
     margin-top: 25px;
+    margin-bottom: 10px!important;
 
     button[type=submit] {
       padding-top: 20px;
@@ -224,5 +233,16 @@ select {
     }
 
   }
+
+}
+
+.global-navbar.fusion-sticky-container.fusion-sticky-scroll-transition {
+	transform: translateY(0)!important;
+	opacity: 1!important;
+  z-index: 1000;
+  pointer-events: auto!important;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0 0 15px 15px;
 
 }
