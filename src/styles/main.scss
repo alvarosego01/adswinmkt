@@ -54,8 +54,9 @@ select {
   border: 1px solid $darkGray !important;
   transition: all 0.25s ease-in-out !important;
 
-  span, i {
-    color: $darkGray!important;
+  span,
+  i {
+    color: $darkGray !important;
 
   }
 
@@ -74,24 +75,24 @@ select {
 }
 
 .flex {
-	display: flex;
+  display: flex;
 }
 
 .block {
-	display: block;
+  display: block;
 }
 
 .flex-column {
-	flex-direction: column;
+  flex-direction: column;
 }
 
 .mt-auto {
-	margin-top: auto;
+  margin-top: auto;
 }
 
 .mx-auto {
-	margin-left: auto!important;
-	margin-right: auto!important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 :has(> .parent-mt-auto) {
@@ -99,40 +100,45 @@ select {
 }
 
 .fab {
-    font-family: "Font Awesome 5 Brands"!important;
+  font-family: "Font Awesome 5 Brands" !important;
 }
 
 .form-custom input {
-	height: 50px!important;
-	font-size: 14px!important;
+  height: 50px !important;
+  font-size: 14px !important;
 }
 
 .form-custom select {
-	height: 50px!important;
-	font-size: 14px!important;
+  height: 50px !important;
+  font-size: 14px !important;
 }
 
 .form-custom label {
-font-size: 15px!important;
+  font-size: 15px !important;
 }
 
 .searchform .fusion-search-form-content .fusion-search-button input[type=submit] {
-	font-family: awb-icons!important
+  font-family: awb-icons !important
 }
 
+.header-hero {
 
-.header-content {
-  @include _resp(pcTab) {
-    width: 90%!important;
-  }
-  @include _resp(lg) {
-    width: 90%!important;
-  }
-  @include _resp(xl) {
-    width: 1500px!important;
-  }
-  @include _resp(2xl) {
-    width: 1750px!important;
-  }
+  .header-content {
+    @include _resp(pcTab) {
+      width: 90% !important;
+    }
 
+    @include _resp(lg) {
+      width: 90% !important;
+    }
+
+    @include _resp(xl) {
+      width: 1500px !important;
+    }
+
+    @include _resp(2xl) {
+      width: 1750px !important;
+    }
+
+  }
 }
