@@ -1,25 +1,26 @@
-$xs: 400px;
+$xs: 365px;
 $sm: 640px;
 $md: 768px;
 $pcTab: 1000px;
 $lg: 1199px;
 $xl: 1500px;
+$xl2: 1750px;
 
 @mixin _resp($breakpoint) {
   @if $breakpoint == xs {
-    @media (max-width: ($xs)) { @content; }
+    @media (min-width: ($xs)) { @content; }
   } @else if $breakpoint == sm {
-    @media (min-width: ($xs + 1)) and (max-width: ($sm)) { @content; }
+    @media (min-width: ($sm)) { @content; }
   } @else if $breakpoint == md {
-    @media (min-width: ($sm + 1)) and (max-width: ($md)) { @content; }
+    @media (min-width: ($md)) { @content; }
   } @else if $breakpoint == pcTab {
-    @media (min-width: ($md + 1)) and (max-width: ($pcTab)) { @content; }
+    @media (min-width: ($pcTab)) { @content; }
   } @else if $breakpoint == lg {
-    @media (min-width: ($pcTab + 1)) and (max-width: ($lg)) { @content; }
+    @media (min-width: ($lg)) { @content; }
   } @else if $breakpoint == xl {
-    @media (min-width: ($lg + 1)) and (max-width: ($xl)) { @content; }
+    @media (min-width: ($xl)) { @content; }
   } @else if $breakpoint == 2xl {
-    @media (min-width: ($xl + 1)) { @content; }
+    @media (min-width: ($xl2)) { @content; }
   }
 }
 

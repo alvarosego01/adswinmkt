@@ -6,6 +6,7 @@ function theme_enqueue_styles()
   wp_enqueue_style('main.css', get_stylesheet_directory_uri() . '/dist/styles/main.css', []);
 
   // Enqueue the main JavaScript file
+  wp_enqueue_script('backgrounds.js', get_stylesheet_directory_uri() . '/dist/scripts/backgrounds.js', [], null, true);
   wp_enqueue_script('main.js', get_stylesheet_directory_uri() . '/dist/scripts/main.js', [], null, true);
 
 }

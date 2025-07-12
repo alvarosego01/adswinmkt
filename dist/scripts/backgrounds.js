@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){document.querySelectorAll(".header-hero.home").forEach(e=>{var o=document.createElement("video");o.src=window.location.origin+"/wp-content/uploads/2025/07/rostro-flotante-izquierda.mp4",o.autoplay=!0,o.loop=!0,o.muted=!0,o.playsInline=!0,o.classList.add("background-hero-video"),e.appendChild(o)})});
