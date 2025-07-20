@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $xs: 365px;
 $sm: 640px;
 $md: 768px;
@@ -24,8 +26,49 @@ $xl2: 1750px;
   }
 }
 
-@mixin responsivoSpecial($desde, $hasta) {
-  @media only screen and (min-width: $desde) and (max-width: $hasta) {
+$breakpoints: (
+  'xs': $xs,
+  'sm': $sm,
+  'md': $md,
+  'pcTab': $pcTab,
+  'lg': $lg,
+  'xl': $xl,
+  'xl2': $xl2
+);
+
+@function get-breakpoint($value) {
+  @if map.has-key($breakpoints, $value) {
+    @return map.get($breakpoints, $value);
+  } @else {
+    @return $value;
+  }
+}
+
+@mixin _respRange($desde: null, $hasta: null) {
+  $min-width: null;
+  $max-width: null;
+
+  @if $desde != null {
+    $min-width: get-breakpoint($desde);
+  }
+
+  @if $hasta != null {
+    $max-width: get-breakpoint($hasta);
+  }
+
+  @if $min-width != null and $max-width != null {
+    @media only screen and (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+      @content;
+    }
+  } @else if $min-width != null {
+    @media only screen and (min-width: #{$min-width}) {
+      @content;
+    }
+  } @else if $max-width != null {
+    @media only screen and (max-width: #{$max-width}) {
+      @content;
+    }
+  } @else {
     @content;
   }
 }
