@@ -13,6 +13,10 @@
 .header-title *,
 .header-title .fusion-responsive-typography-calculated {
   font-size: 50px;
+  font-family: 'dinot-font', sans-serif !important;
+  * {
+    font-family: 'dinot-font', sans-serif !important;
+  }
   @include _respRange(null, md) {
     font-size: 35px!important;
   }
@@ -35,7 +39,14 @@
 
 .content-title *,
 .content-title .fusion-responsive-typography-calculated {
-  @include _respRange(null, md) {
+  font-family: 'dinot-font', sans-serif !important;
+  font-weight: 600!important;
+  * {
+  font-weight: 600!important;
+    font-family: 'dinot-font', sans-serif !important;
+  }
+
+  @include _respRange(null, sm) {
     font-size: 25px!important;
   }
   @include _respRange(md, pcTab) {
