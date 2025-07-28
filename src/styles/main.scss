@@ -13,17 +13,19 @@
 .header-title .fusion-responsive-typography-calculated {
   font-size: 50px;
   font-family: 'dinot-font', sans-serif !important;
+  font-weight: 800 !important;
 
   * {
     font-family: 'dinot-font', sans-serif !important;
   }
 
   @include _respRange(null, md) {
-    font-size: 35px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
   }
 
-  @include _respRange(md, pcTab) {
-    font-size: 37.5px !important;
+  @include _respRange(null, pcTab) {
+    font-size: 35px !important;
   }
 
   @include _respRange(pcTab, lg) {
@@ -34,7 +36,16 @@
 
 .header-subTitle *,
 .header-subTitle .fusion-responsive-typography-calculated {
-  @include _respRange(null, pcTab) {
+  @include _respRange(null, sm) {
+    font-size: 15px !important;
+  }
+
+  @include _respRange(null, md) {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  @include _respRange(sm, pcTab) {
     font-size: 16px !important;
   }
 
@@ -49,9 +60,11 @@
     font-weight: 600 !important;
     font-family: 'dinot-font', sans-serif !important;
   }
+
   @include _respRange(null, sm) {
     font-size: 25px !important;
   }
+
   @include _respRange(md, pcTab) {
     font-size: 30px !important;
   }
@@ -63,6 +76,7 @@
   @include _respRange(null, sm) {
     font-size: 18px !important;
   }
+
   @include _respRange(md, pcTab) {
     font-size: 20px !important;
   }
@@ -70,6 +84,7 @@
 
 .content-text *,
 .content-text .fusion-responsive-typography-calculated {
+
   p,
   li,
   li * {
@@ -238,16 +253,29 @@ select {
 .header-hero-mobile {
   position: relative;
 
-  .header-hero-content-mobile {
+  .header-hero-content-video-mobile {
+    border-radius: 25px !important;
+    height: 250px !important;
+    overflow: hidden;
+
+    .fusion-column-wrapper {
+      p {
+        margin: 0 !important;
+      }
+    }
 
     .background-hero-video {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: fill;
+      object-position: left center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
       z-index: -1;
+
     }
 
   }
@@ -256,10 +284,6 @@ select {
     margin-top: -15px;
   }
 
-  // .overlay {
-  //   border-radius: 10px;
-  //   background-color: rgba(0, 0, 0, 0.5) !important;
-  // }
   .overlay {
     color: #fff;
     text-shadow:
@@ -268,6 +292,7 @@ select {
       -0.5px 0.5px 0.5px #000,
       0.5px 0.5px 0.5px #000;
   }
+
 
 
 }
@@ -282,7 +307,6 @@ select {
 
   }
 
-  ;
 
   .header-content {
     @include _resp(pcTab) {
@@ -319,34 +343,89 @@ select {
     height: 100%;
     object-fit: fill;
     z-index: 1;
-  }
-
-  &.home {
-
-    @include _resp(xs) {
-      .background-hero-video {
-        object-fit: cover;
-      }
-    }
-
-    @include _resp(sm) {
-      .background-hero-video {
-        object-fit: cover;
-      }
-    }
-
-    @include _resp(md) {
-      .background-hero-video {
-        object-fit: fill;
-      }
-    }
-
-    @include _resp(pcTab) {
-      .background-hero-video {
-        object-fit: fill;
-      }
+    @include _respRange(md, pcTab) {
+      object-fit: cover;
+      object-position: center center;
     }
   }
+
+  &.header-two-columns {
+
+    // .background-hero-video {
+    // object-fit: cover;
+    // }
+    .blank-col {}
+
+    .content-col {
+      margin-left: auto;
+      @include _respRange(md, pcTab) {
+        margin-left: auto !important;
+        width: 400px !important;
+        margin-right: 10px;
+      }
+      @include _respRange(pcTab, xl) {
+        width: 500px !important;
+        margin-right: 50px !important;
+      }
+      @include _respRange(pcTab, lg) {
+        margin-right: -10px !important;
+      }
+      @include _respRange(lg, null) {
+        width: 600px !important;
+      }
+      @include _respRange(xl, null) {
+        margin-right: -50px !important;
+      }
+    }
+
+  }
+
+  &:not(.header-two-columns) {
+    .blank-col {
+      @include _respRange(md, pcTab) {
+        width: 20% !important;
+      }
+
+      @include _respRange(pcTab, xl2) {
+        width: 25% !important;
+      }
+    }
+
+    .content-col {
+      @include _respRange(md, pcTab) {
+        width: 35% !important;
+        padding-right: 0;
+      }
+
+      @include _respRange(pcTab, xl2) {
+        width: 35% !important;
+        padding-right: 0;
+        padding-left: 25px;
+      }
+    }
+
+    .form-col {
+      @include _respRange(md, pcTab) {
+        width: 45% !important;
+        padding-right: 25px;
+      }
+
+      @include _respRange(pcTab, lg) {
+        width: 40% !important;
+        padding-right: 0;
+      }
+
+      @include _respRange(xl, xl2) {
+        width: 40% !important;
+      }
+    }
+  }
+
+  .shadow .fusion-column-wrapper {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  }
+
+
 }
 
 .global-navbar.fusion-sticky-container.fusion-sticky-scroll-transition {
@@ -360,19 +439,27 @@ select {
 
 }
 
-// .global-navbar {
+.global-navbar {
 
-//   ul#menu-adswin-header-menu {
-//     li {
-//       a {
-//         @include _respRange(1201px, 1350px) {
-//           font-size: 14px;
-//         }
-//       }
-//     }
-//   }
+  ul#menu-adswin-header-menu {
+    @include _respRange(lg, 1300px) {
+      gap: 15px !important;
+    }
 
-// }
+    li {
+      @include _respRange(lg, 1300px) {
+        margin: 0;
+      }
+
+    }
+  }
+
+  @include _respRange(lg, 1300px) {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+}
 
 .image-info-content {
 
@@ -419,15 +506,15 @@ select {
   .content {
     padding: 0;
 
-      @include _respRange(xs, md) {
-        margin: 0!important;
-      }
+    @include _respRange(xs, md) {
+      margin: 0 !important;
+    }
 
     >.fusion-column-wrapper {
       margin: auto 0;
 
       @include _respRange(xs, md) {
-        padding-top: 0!important;
+        padding-top: 0 !important;
 
       }
       @include _respRange(md, lg) {
