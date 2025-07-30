@@ -1,6 +1,5 @@
 // @use 'globals' as globals;
 
-
 .fusion-archives-tb {
 
   .fusion-blog-rollover.fusion-posts-container {
@@ -112,7 +111,6 @@
 
 }
 
-
 .related-posts {
   .swiper-wrapper {
     .swiper-slide {
@@ -158,16 +156,10 @@
           @include _resp(pcTab) {
             font-size: 20px;
           }
-
         }
-
-
       }
-
     }
-
   }
-
 }
 
 ul>li.post-card.fusion-grid-column.fusion-post-cards-grid-column>div>div.fusion-builder-row-inner>div.fusion-flex-column>div {

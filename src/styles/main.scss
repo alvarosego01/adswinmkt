@@ -36,8 +36,10 @@
 
 .header-subTitle *,
 .header-subTitle .fusion-responsive-typography-calculated {
+  line-height: 1.5;
+
   @include _respRange(null, sm) {
-    font-size: 15px !important;
+    font-size: 14px !important;
   }
 
   @include _respRange(null, md) {
@@ -345,7 +347,9 @@ select {
     width: 100%;
     height: 100%;
     object-fit: fill;
+    object-position: center -2px;
     z-index: 1;
+
     @include _respRange(md, pcTab) {
       object-fit: cover;
       object-position: center center;
@@ -354,28 +358,30 @@ select {
 
   &.header-two-columns {
 
-    // .background-hero-video {
-    // object-fit: cover;
-    // }
     .blank-col {}
 
     .content-col {
       margin-left: auto;
+
       @include _respRange(md, pcTab) {
         margin-left: auto !important;
         width: 400px !important;
         margin-right: 10px;
       }
+
       @include _respRange(pcTab, xl) {
         width: 500px !important;
         margin-right: 50px !important;
       }
+
       @include _respRange(pcTab, lg) {
         margin-right: -10px !important;
       }
+
       @include _respRange(lg, null) {
         width: 600px !important;
       }
+
       @include _respRange(xl, null) {
         margin-right: -50px !important;
       }
@@ -518,13 +524,13 @@ select {
 
       @include _respRange(xs, md) {
         padding-top: 0 !important;
-
       }
+
       @include _respRange(md, lg) {
         padding-left: 15px !important;
         padding-right: 15px !important;
-
       }
+
       @include _respRange(lg, null) {
         padding-left: 35px !important;
         padding-right: 35px !important;
@@ -544,4 +550,8 @@ select {
     font-weight: 600 !important;
 
   }
+}
+
+.background-hero-video {
+  border-radius: 20px;
 }

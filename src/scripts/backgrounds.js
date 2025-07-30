@@ -88,7 +88,6 @@ function backgroundHome() {
 }
 
 jQuery(document).ready(function () {
-
   backgroundHome();
 
 });
