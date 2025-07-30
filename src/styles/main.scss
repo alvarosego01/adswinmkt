@@ -86,7 +86,6 @@
 
 .content-text *,
 .content-text .fusion-responsive-typography-calculated {
-
   p,
   li,
   li * {
@@ -95,6 +94,21 @@
       font-size: 16px !important;
     }
   }
+
+}
+
+.third-content-title *,
+.third-content-title .fusion-responsive-typography-calculated {
+
+  font-size: 22px;
+  @include _respRange(null, xs) {
+
+  }
+
+}
+
+.third-content-text *,
+.third-content-text .fusion-responsive-typography-calculated {
 
 }
 
