@@ -66,11 +66,12 @@
   @include _respRange(null, sm) {
     font-size: 25px !important;
   }
-
   @include _respRange(md, pcTab) {
     font-size: 30px !important;
   }
-
+  @include _respRange(pcTab, null) {
+    font-size: 35px !important;
+  }
 }
 
 .content-subtitle *,
@@ -78,20 +79,32 @@
   @include _respRange(null, sm) {
     font-size: 18px !important;
   }
-
   @include _respRange(md, pcTab) {
     font-size: 20px !important;
+  }
+  @include _respRange(pcTab, null) {
+    font-size: 25px !important;
   }
 }
 
 .content-text *,
 .content-text .fusion-responsive-typography-calculated {
+  line-height: 1.3!important;
+
+    @include _respRange(null, pcTab) {
+      font-size: 16px !important;
+    }
+    @include _respRange(pcTab, null) {
+      font-size: 22.5px!important;
+    }
   p,
   li,
   li * {
     @include _respRange(null, pcTab) {
-      line-height: 1.5;
       font-size: 16px !important;
+    }
+    @include _respRange(pcTab, null) {
+      font-size: 22.5px!important;
     }
   }
 
@@ -100,15 +113,18 @@
 .third-content-title *,
 .third-content-title .fusion-responsive-typography-calculated {
 
-  font-size: 22px;
-  @include _respRange(null, xs) {
-
+  @include _respRange(pcTab, null) {
+    font-size: 22.5px!important;
   }
 
 }
 
 .third-content-text *,
 .third-content-text .fusion-responsive-typography-calculated {
+  line-height: 1.3;
+  @include _respRange(pcTab, null) {
+    font-size: 18px!important;
+  }
 
 }
 
@@ -384,19 +400,24 @@ select {
         width: 400px !important;
         margin-right: 10px;
       }
+
       @include _respRange(pcTab, xl) {
         width: 500px !important;
         margin-right: 50px !important;
       }
+
       @include _respRange(pcTab, lg) {
         margin-right: -10px !important;
       }
+
       @include _respRange(lg, null) {
         width: 600px !important;
       }
+
       @include _respRange(xl, null) {
         margin-right: -50px !important;
       }
+
       @include _respRange(md, null) {
         top: -50px;
       }
@@ -450,6 +471,10 @@ select {
   }
 
 
+}
+
+.shadow-1 {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
 }
 
 .global-navbar.fusion-sticky-container.fusion-sticky-scroll-transition {
@@ -558,6 +583,10 @@ select {
 
 }
 
+.flex {
+  display: flex;
+}
+
 .bold-text {
   font-weight: 600 !important;
 
@@ -569,4 +598,23 @@ select {
 
 .background-hero-video {
   border-radius: 20px;
+}
+
+.testimonial-person {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 5px;
+  img {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    border: 2px solid $primaryBlue;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  }
+  strong {
+    line-height: 1;
+  }
+
 }
