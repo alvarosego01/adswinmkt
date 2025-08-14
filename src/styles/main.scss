@@ -32,6 +32,10 @@
     font-size: 40px !important;
   }
 
+  @include _respRange(lg, null) {
+    font-size: 42.5px !important;
+  }
+
 }
 
 .header-subTitle *,
@@ -49,6 +53,10 @@
 
   @include _respRange(sm, pcTab) {
     font-size: 16px !important;
+  }
+
+  @include _respRange(lg, null) {
+    font-size: 18px !important;
   }
 
 }
@@ -545,13 +553,15 @@ select {
       background: linear-gradient(90deg, rgba(244, 244, 244, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(244, 244, 244, 1) 100%);
     }
   }
+
   &.frame-grey-1 {
     .content {
 
-        ul {
+      ul {
         li.fusion-li-item {
           span.icon-wrapper {
             background-color: $primaryBlue !important;
+
             i.fusion-li-icon {
               color: $lightGray !important;
             }
@@ -578,6 +588,7 @@ select {
         li.fusion-li-item {
           span.icon-wrapper {
             background-color: $lightGray !important;
+
             i.fusion-li-icon {
               color: $primaryBlue !important;
             }
