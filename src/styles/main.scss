@@ -720,11 +720,39 @@ select {
       }
 
       @include _respRange(sm, md) {
-        height: 800px !important;
+        height: 750px !important;
 
       }
     }
 
   }
+
+}
+
+.page-sliding-bar {
+
+  li.pll-parent-menu-item.menu-item.current-menu-parent.menu-item-has-children {
+    position: relative;
+
+    ul.awb-menu__sub-ul.awb-menu__sub-ul_main {
+      position: absolute!important;
+      left: 15px!important;
+      top: 25px;
+
+    }
+
+  }
+
+}
+
+.primary-button.navbar-cta {
+
+  @include _respRange(lg, 1425px) {
+    font-size: 14px!important;
+  }
+  // @include _respRange(xl, null) {
+  //   padding-left: 25px!important;
+  //   padding-right: 25px!important;
+  // }
 
 }
