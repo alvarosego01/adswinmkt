@@ -23,7 +23,11 @@
     padding-right: 25px !important;
   }
 
-  @include _respRange(null, pcTab) {
+  @include _respRange(null, sm) {
+    font-size: 30px !important;
+  }
+
+  @include _respRange(sm, pcTab) {
     font-size: 35px !important;
   }
 
@@ -183,6 +187,16 @@ select {
     }
 
   }
+
+  // @include _respRange(null, md) {
+  //   font-size: 14px!important;
+  //   padding-left: 20px!important;
+  //   * {
+  //     font-size: 14px !important;
+  //     padding-left: 20px!important;
+  //   }
+  // }
+
 }
 
 .secondary-button {
@@ -209,6 +223,15 @@ select {
     }
 
   }
+
+  // @include _respRange(null, md) {
+  //   font-size: 14px!important;
+  //   padding-left: 20px!important;
+  //   * {
+  //     font-size: 14px !important;
+  //     padding-left: 20px!important;
+  //   }
+  // }
 
 }
 
@@ -664,6 +687,44 @@ select {
 
   strong {
     line-height: 1;
+  }
+
+}
+
+.popup-form-global {
+
+  .awb-off-canvas {
+    margin: 0 !important;
+    position: relative;
+
+    @include _respRange(null, sm) {
+      top: 20px !important;
+    }
+
+    .off-canvas-close {
+      @include _respRange(null, md) {
+        top: 10px !important;
+        right: -10px !important;
+      }
+    }
+
+    .awb-off-canvas-inner {
+      @include _respRange(null, md) {
+        padding: 25px 5px;
+
+      }
+
+      @include _respRange(null, sm) {
+        height: 600px !important;
+
+      }
+
+      @include _respRange(sm, md) {
+        height: 800px !important;
+
+      }
+    }
+
   }
 
 }
