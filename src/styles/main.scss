@@ -780,7 +780,10 @@ select {
 
 .primary-button.navbar-cta {
 
-  @include _respRange(lg, 1425px) {
+  @include _respRange(lg, 1350px) {
+    font-size: 13px !important;
+  }
+  @include _respRange(1350px, 1566px) {
     font-size: 14px !important;
   }
 
