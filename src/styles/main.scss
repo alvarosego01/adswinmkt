@@ -711,13 +711,19 @@ select {
     @include _respRange(null, md) {
       .content {
         .fusion-title.title {
-          margin-bottom: 440px!important;
+          margin-bottom: 500px!important;
         }
       }
       .image-content {
-        // background-color: red;
         position: absolute;
-        top: 100px;
+        top: 105px;
+        left: 0;
+        right: 0;
+
+        .fusion-column-has-bg-image {
+          height: 450px!important;
+          width: 100%;
+        }
 
       }
     }
