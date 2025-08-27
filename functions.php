@@ -5,6 +5,13 @@ function theme_enqueue_styles()
   wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', []);
   wp_enqueue_style('main.css', get_stylesheet_directory_uri() . '/dist/styles/main.css', []);
 
+  // Preconnect to Google Fonts
+  echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+  echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+
+  // Enqueue Google Fonts
+  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap', [], null);
+
   // Enqueue the main JavaScript file
   wp_enqueue_script('backgrounds.js', get_stylesheet_directory_uri() . '/dist/scripts/backgrounds.js', [], null, true);
   wp_enqueue_script('main.js', get_stylesheet_directory_uri() . '/dist/scripts/main.js', [], null, true);
