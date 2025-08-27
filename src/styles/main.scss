@@ -708,20 +708,46 @@ select {
 
   &.invert-mobile {
     position: relative;
-    @include _respRange(null, md) {
+    @include _respRange(null, 550px) {
       .content {
         .fusion-title.title {
-          margin-bottom: 500px!important;
+          h2 {
+            height: 75px!important;
+            margin-bottom: 425px!important;
+
+          }
         }
       }
       .image-content {
         position: absolute;
-        top: 105px;
+        top: 140px;
         left: 0;
         right: 0;
 
         .fusion-column-has-bg-image {
-          height: 450px!important;
+          height: 400px!important;
+          width: 100%;
+        }
+
+      }
+    }
+    @include _respRange(550px, md) {
+      .content {
+        .fusion-title.title {
+            h2 {
+            margin-bottom: 475px!important;
+
+          }
+        }
+      }
+      .image-content {
+        position: absolute;
+        top: 125px;
+        left: 0;
+        right: 0;
+
+        .fusion-column-has-bg-image {
+          height: 425px!important;
           width: 100%;
         }
 
