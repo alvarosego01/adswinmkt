@@ -862,9 +862,9 @@ select {
 .primary-button.navbar-cta {
 
   @include _respRange(null, sm) {
-    padding: 15px 17.5px!important;
+    padding: 15px!important;
     position: relative;
-    left: -20px;
+    left: 5px;
     font-size: 12px!important;
   }
 
