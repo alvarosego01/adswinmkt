@@ -655,6 +655,11 @@ select {
               color: $lightGray !important;
             }
           }
+          .fusion-li-item-content,
+          .fusion-li-item-content b{
+            color: $primaryBlue;
+            font-weight: 400!important;
+          }
         }
       }
 
@@ -681,6 +686,10 @@ select {
             i.fusion-li-icon {
               color: $primaryBlue !important;
             }
+          }
+          .fusion-li-item-content,
+          .fusion-li-item-content b{
+            font-weight: 400!important;
           }
         }
       }
