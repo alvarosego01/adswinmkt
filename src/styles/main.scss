@@ -729,11 +729,6 @@ select {
         left: 0;
         right: 0;
 
-        .fusion-column-has-bg-image {
-          height: 400px !important;
-          width: 100%;
-        }
-
       }
     }
 
@@ -753,13 +748,25 @@ select {
         left: 0;
         right: 0;
 
-        .fusion-column-has-bg-image {
-          height: 425px !important;
-          width: 100%;
-        }
-
       }
     }
+  }
+
+  .image-content {
+
+    @include _respRange(null, 550px) {
+      .fusion-column-has-bg-image {
+        height: 400px !important;
+        width: 100%;
+      }
+    }
+    @include _respRange(550px, md) {
+      .fusion-column-has-bg-image {
+        height: 425px !important;
+        width: 100%;
+      }
+    }
+
   }
 
 }
@@ -862,10 +869,10 @@ select {
 .primary-button.navbar-cta {
 
   @include _respRange(null, sm) {
-    padding: 15px!important;
+    padding: 15px !important;
     position: relative;
-    left: 5px;
-    font-size: 12px!important;
+    left: 10px;
+    font-size: 12px !important;
   }
 
   @include _respRange(lg, 1350px) {
