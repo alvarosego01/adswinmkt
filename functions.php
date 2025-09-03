@@ -5,13 +5,6 @@ function theme_enqueue_styles()
   wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', []);
   wp_enqueue_style('main.css', get_stylesheet_directory_uri() . '/dist/styles/main.css', []);
 
-  // Preconnect to Google Fonts
-  echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
-  echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
-
-  // Enqueue Google Fonts
-  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap', [], null);
-
   // Enqueue the main JavaScript file
   wp_enqueue_script('backgrounds.js', get_stylesheet_directory_uri() . '/dist/scripts/backgrounds.js', [], null, true);
   wp_enqueue_script('main.js', get_stylesheet_directory_uri() . '/dist/scripts/main.js', [], null, true);
@@ -58,3 +51,85 @@ function enable_testimonial_translation_polylang() {
         }
     }
 }
+
+
+$avada_options = get_option( 'fusion_options' );
+
+
+
+$customFonts = [
+  'Primary - Header title',
+  'Primary - Header Subtitle',
+  'Secondary - Content title',
+  'Secondary - Content text',
+  'Tertiary - Content title',
+  'Tertiary - Content text',
+  'Forms, Navs and others',
+];
+
+$foundFonts = [];
+foreach ($customFonts as $fontLabel) {
+  $found = null;
+  if (isset($avada_options['typography_sets']) && is_array($avada_options['typography_sets'])) {
+    foreach ($avada_options['typography_sets'] as $set) {
+      if (isset($set['label']) && $set['label'] === $fontLabel) {
+        $found = $set;
+        break;
+      }
+    }
+  }
+  $foundFonts[$fontLabel] = $found ? $found : [];
+}
+
+// Mapeo de labels a clases CSS
+$fontClassMap = [
+  'Primary - Header title'      => 'header-title',
+  'Primary - Header Subtitle'   => 'header-subTitle',
+  'Secondary - Content title'   => 'content-title',
+  'Secondary - Content text'    => 'content-text',
+  'Tertiary - Content title'    => 'third-content-title',
+  'Tertiary - Content text'     => 'third-content-text',
+  'Forms, Navs and others'      => 'forms-navs-others',
+];
+
+// Construir CSS dinámico
+$customCss = '';
+foreach ($foundFonts as $label => $fontData) {
+  if (!empty($fontData) && isset($fontClassMap[$label]) && !empty($fontData['font-family'])) {
+    $cssClass = $fontClassMap[$label];
+    $fontFamily = $fontData['font-family'];
+    $fontWeight = isset($fontData['variant']) ? $fontData['variant'] : 'normal';
+
+    // Caso especial para "Forms, Navs and others"
+    if ($cssClass === 'forms-navs-others') {
+      $customCss .= "html body h1,\n";
+      $customCss .= "html body h2,\n";
+      $customCss .= "html body h3,\n";
+      $customCss .= "html body h4,\n";
+      $customCss .= "html body h5,\n";
+      $customCss .= "html body h6,\n";
+      $customCss .= "html body p,\n";
+      $customCss .= "html body a,\n";
+      $customCss .= "html body span,\n";
+      $customCss .= "html body button,\n";
+      $customCss .= "html body label,\n";
+      $customCss .= "html body input,\n";
+      $customCss .= "html body textarea,\n";
+      $customCss .= "html body select";
+      $customCss .= " { font-family: {$fontFamily}; font-weight: {$fontWeight}; }\n";
+    } else {
+      $customCss .= "html body .{$cssClass},\n";
+      $customCss .= "html body .{$cssClass} * { font-family: {$fontFamily} !important; font-weight: {$fontWeight} !important; }\n";
+    }
+  }
+}
+
+if (!empty($customCss)) {
+  add_action('wp_head', function() use ($customCss) {
+    echo "<style id='custom-fonts-css'>\n{$customCss}</style>\n";
+  }, 0);
+}
+
+  // echo '<pre style="background:#fff; color:#222; padding:1em; border:1px solid #ccc;">';
+  // print_r($foundFonts);
+  // echo '</pre>';
