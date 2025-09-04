@@ -116,7 +116,7 @@ foreach ($foundFonts as $label => $fontData) {
       $customCss .= "html body input,\n";
       $customCss .= "html body textarea,\n";
       $customCss .= "html body select";
-      $customCss .= " { font-family: {$fontFamily}; font-weight: {$fontWeight}; }\n";
+      $customCss .= " { font-family: {$fontFamily};  }\n";
     } else {
       $customCss .= "html body .{$cssClass},\n";
       $customCss .= "html body .{$cssClass} * { font-family: {$fontFamily} !important; font-weight: {$fontWeight} !important; }\n";
