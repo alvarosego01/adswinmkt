@@ -3,10 +3,10 @@
 
 .header-title *,
 .header-title .fusion-responsive-typography-calculated {
-  line-height: 1.1!important;
+  line-height: 1!important;
   @include _respRange(null, pcTab) {
-    padding-left: 25px !important;
-    padding-right: 25px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
     font-size: 45px !important;
   }
 
@@ -15,27 +15,27 @@
   }
 
   @include _respRange(lg, null) {
-    font-size: 55px !important;
+    font-size: 60px !important;
   }
 
 }
 
 .header-subTitle *,
 .header-subTitle .fusion-responsive-typography-calculated {
-  line-height: 1.2!important;
+  line-height: 1.3!important;
   @include _respRange(null, sm) {
-    padding-left: 25px !important;
-    padding-right: 25px !important;
-    font-size: 18px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-size: 16px !important;
   }
 
   @include _respRange(sm, pcTab) {
-    padding-left: 25px !important;
-    padding-right: 25px !important;
-    font-size: 20px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-size: 18px !important;
   }
 
-  @include _respRange(lg, null) {
+  @include _respRange(pcTab, null) {
     font-size: 22px !important;
   }
 
@@ -46,13 +46,13 @@
   line-height: 1.1!important;
   margin-bottom: 10px !important;
   @include _respRange(null, pcTab) {
-    font-size: 32.5px !important;
+    font-size: 35px !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
   }
 
   @include _respRange(pcTab, null) {
-    font-size: 35px !important;
+    font-size: 40px !important;
   }
 }
 
@@ -79,17 +79,17 @@
     font-size: 18px !important;
   }
 
-  @include _respRange(sm, md) {
+  @include _respRange(sm, null) {
     font-size: 20px !important;
   }
 
-  @include _respRange(md, pcTab) {
-    font-size: 22px !important;
-  }
+  // @include _respRange(md, pcTab) {
+  //   font-size: 22px !important;
+  // }
 
-  @include _respRange(pcTab, null) {
-    font-size: 22px !important;
-  }
+  // @include _respRange(pcTab, null) {
+  //   font-size: 22px !important;
+  // }
 
   p,
   li,
@@ -98,17 +98,17 @@
       font-size: 18px !important;
     }
 
-    @include _respRange(sm, md) {
+    @include _respRange(sm, null) {
       font-size: 20px !important;
     }
 
-    @include _respRange(md, pcTab) {
-      font-size: 22px !important;
-    }
+    // @include _respRange(md, pcTab) {
+    //   font-size: 22px !important;
+    // }
 
-    @include _respRange(pcTab, null) {
-      font-size: 22px !important;
-    }
+    // @include _respRange(pcTab, null) {
+    //   font-size: 22px !important;
+    // }
   }
 
 }
@@ -551,6 +551,39 @@
   }
 }
 
+// Gradient text utilities (inspired by the background gradients above)
+// Usage example:
+// <h2 class="text-gradient text-degrade-purple-blue-1">Texto con degradado</h2>
+.text-gradient,
+.gradient-text {
+  // Fallback color for browsers that don't support background-clip: text
+  color: $primaryBlue !important;
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .text-gradient,
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    // Required for Safari/WebKit
+    -webkit-text-fill-color: transparent;
+    color: transparent !important;
+  }
+}
+
+// Variants matching existing section backgrounds
+.text-degrade-purple-blue-1 {
+  background-image: linear-gradient(115deg, rgba(43, 116, 231, 1) 0%, rgba(74, 0, 224, 1) 50%, rgba(107, 163, 245, 1) 100%) !important;
+}
+
+.text-degrade-purple-blue-2 {
+  background-image: radial-gradient(circle, rgba(43, 116, 231, 1) 0%, rgba(74, 0, 224, 1) 100%) !important;
+}
+
+.text-degrade-grey-1 {
+  background-image: linear-gradient(90deg, rgba(244, 244, 244, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(244, 244, 244, 1) 100%) !important;
+}
+
 .image-info-content {
 
   >.fusion-builder-row.fusion-row {
@@ -851,5 +884,5 @@
     font-size: 14px !important;
   }
 
-
 }
+
