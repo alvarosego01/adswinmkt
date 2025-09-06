@@ -36,7 +36,7 @@
   }
 
   @include _respRange(pcTab, null) {
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
 
 }
@@ -58,57 +58,53 @@
 
 .content-subtitle *,
 .content-subtitle .fusion-responsive-typography-calculated {
-  @include _respRange(null, md) {
-    font-size: 20px !important;
+
+  line-height: 1.3 !important;
+   @include _respRange(null, sm) {
+    font-size: 16px !important;
   }
 
-  @include _respRange(md, pcTab) {
-    font-size: 25px !important;
+  @include _respRange(sm, pcTab) {
+    font-size: 18px !important;
   }
 
   @include _respRange(pcTab, null) {
-    font-size: 30px !important;
+    font-size: 20px !important;
   }
+
 }
 
 .content-text *,
 .content-text .fusion-responsive-typography-calculated {
 
   line-height: 1.3 !important;
-  @include _respRange(null, sm) {
+   @include _respRange(null, sm) {
+    font-size: 16px !important;
+  }
+
+  @include _respRange(sm, pcTab) {
     font-size: 18px !important;
   }
 
-  @include _respRange(sm, null) {
+  @include _respRange(pcTab, null) {
     font-size: 20px !important;
   }
-
-  // @include _respRange(md, pcTab) {
-  //   font-size: 22px !important;
-  // }
-
-  // @include _respRange(pcTab, null) {
-  //   font-size: 22px !important;
-  // }
 
   p,
   li,
   li * {
-    @include _respRange(null, sm) {
-      font-size: 18px !important;
-    }
+   line-height: 1.3 !important;
+   @include _respRange(null, sm) {
+    font-size: 16px !important;
+  }
 
-    @include _respRange(sm, null) {
-      font-size: 20px !important;
-    }
+  @include _respRange(sm, pcTab) {
+    font-size: 18px !important;
+  }
 
-    // @include _respRange(md, pcTab) {
-    //   font-size: 22px !important;
-    // }
-
-    // @include _respRange(pcTab, null) {
-    //   font-size: 22px !important;
-    // }
+  @include _respRange(pcTab, null) {
+    font-size: 20px !important;
+  }
   }
 
 }
@@ -139,11 +135,11 @@
   line-height: 1.3;
 
   @include _respRange(null, pcTab) {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 
   @include _respRange(pcTab, null) {
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
 
 }
