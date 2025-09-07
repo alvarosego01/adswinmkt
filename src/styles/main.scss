@@ -3,10 +3,11 @@
 
 .header-title *,
 .header-title .fusion-responsive-typography-calculated {
-  line-height: 1!important;
+  line-height: 1 !important;
+
   @include _respRange(null, pcTab) {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     font-size: 45px !important;
   }
 
@@ -15,14 +16,15 @@
   }
 
   @include _respRange(lg, null) {
-    font-size: 60px !important;
+    font-size: 50px !important;
   }
 
 }
 
 .header-subTitle *,
 .header-subTitle .fusion-responsive-typography-calculated {
-  line-height: 1.3!important;
+  line-height: 1.3 !important;
+
   @include _respRange(null, sm) {
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -36,15 +38,16 @@
   }
 
   @include _respRange(pcTab, null) {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 
 }
 
 .content-title *,
 .content-title .fusion-responsive-typography-calculated {
-  line-height: 1.1!important;
+  line-height: 1.1 !important;
   margin-bottom: 10px !important;
+
   @include _respRange(null, pcTab) {
     font-size: 35px !important;
     padding-left: 10px !important;
@@ -60,7 +63,8 @@
 .content-subtitle .fusion-responsive-typography-calculated {
 
   line-height: 1.3 !important;
-   @include _respRange(null, sm) {
+
+  @include _respRange(null, sm) {
     font-size: 16px !important;
   }
 
@@ -78,7 +82,8 @@
 .content-text .fusion-responsive-typography-calculated {
 
   line-height: 1.3 !important;
-   @include _respRange(null, sm) {
+
+  @include _respRange(null, sm) {
     font-size: 16px !important;
   }
 
@@ -87,24 +92,25 @@
   }
 
   @include _respRange(pcTab, null) {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 
   p,
   li,
   li * {
-   line-height: 1.3 !important;
-   @include _respRange(null, sm) {
-    font-size: 16px !important;
-  }
+    line-height: 1.3 !important;
 
-  @include _respRange(sm, pcTab) {
-    font-size: 18px !important;
-  }
+    @include _respRange(null, sm) {
+      font-size: 16px !important;
+    }
 
-  @include _respRange(pcTab, null) {
-    font-size: 20px !important;
-  }
+    @include _respRange(sm, pcTab) {
+      font-size: 18px !important;
+    }
+
+    @include _respRange(pcTab, null) {
+      font-size: 18px !important;
+    }
   }
 
 }
@@ -557,6 +563,7 @@
 }
 
 @supports (-webkit-background-clip: text) or (background-clip: text) {
+
   .text-gradient,
   .gradient-text {
     background-clip: text;
@@ -583,8 +590,17 @@
 .image-info-content {
 
   >.fusion-builder-row.fusion-row {
-    padding: 35px 10px !important;
     border-radius: 25px;
+
+    @include _respRange(null, md) {
+      padding: 35px 0 !important;
+
+    }
+
+    @include _respRange(md, null) {
+      padding: 35px 10px !important;
+
+    }
   }
 
   &.frame-degrade-purple-blue-1 {
@@ -620,10 +636,11 @@
               color: $lightGray !important;
             }
           }
+
           .fusion-li-item-content,
-          .fusion-li-item-content b{
+          .fusion-li-item-content b {
             color: $primaryBlue;
-            font-weight: 400!important;
+            font-weight: 400 !important;
           }
         }
       }
@@ -643,6 +660,14 @@
         color: white !important;
       }
 
+      .image-content.hide-desktop {
+
+        p,
+        div {
+          color: rgb(56, 56, 56) !important;
+        }
+      }
+
       ul {
         li.fusion-li-item {
           span.icon-wrapper {
@@ -652,9 +677,10 @@
               color: $primaryBlue !important;
             }
           }
+
           .fusion-li-item-content,
-          .fusion-li-item-content b{
-            font-weight: 400!important;
+          .fusion-li-item-content b {
+            font-weight: 400 !important;
           }
         }
       }
@@ -694,47 +720,48 @@
   &.invert-mobile {
     position: relative;
 
-    @include _respRange(null, 550px) {
-      .content {
-        .fusion-title.title {
-          h2 {
-            height: 75px !important;
-            margin-bottom: 425px !important;
-
-          }
+    .content {
+      @include _respRange(null, md) {
+        margin-top: 0;
+        >.fusion-column-wrapper {
+          display: unset !important;
+          padding-top: 0 !important;
         }
+
+        .image-content.hide-desktop {
+          display: flex !important;
+          margin-bottom: 25px !important;
+          position: relative;
+          padding: 0;
+
+          >.fusion-column-wrapper {
+            display: flex !important;
+          }
+
+        }
+
       }
-
-      .image-content {
-        position: absolute;
-        top: 140px;
-        left: 0;
-        right: 0;
-
+      .image-content.hide-desktop {
+        @include _respRange(md, null) {
+          display: none !important;
+        }
       }
     }
 
-    @include _respRange(550px, md) {
-      .content {
-        .fusion-title.title {
-          h2 {
-            margin-bottom: 475px !important;
-
-          }
-        }
-      }
-
-      .image-content {
-        position: absolute;
-        top: 125px;
-        left: 0;
-        right: 0;
+    .image-content {
+      @include _respRange(null, md) {
+        display: none !important;
 
       }
+
     }
   }
 
   .image-content {
+    @include _respRange(null, md) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
 
     @include _respRange(null, 550px) {
       .fusion-column-has-bg-image {
@@ -742,6 +769,7 @@
         width: 100%;
       }
     }
+
     @include _respRange(550px, md) {
       .fusion-column-has-bg-image {
         height: 425px !important;
@@ -827,21 +855,14 @@
     }
 
     form {
-      .fusion-form-field label{
-        color: $primaryBlue!important;
+      .fusion-form-field label {
+        color: $primaryBlue !important;
       }
     }
 
-  // .fusion-title-heading,
-  // .fusion-title-heading * {
-  //   font-family: "IBM Plex Sans", sans-serif !important;
-  //   font-weight: 600!important;
-  // }
-
-  .disclaimer {
-    color: $primaryBlue!important;
-  }
-
+    .disclaimer {
+      color: $primaryBlue !important;
+    }
 
   }
 
@@ -881,4 +902,3 @@
   }
 
 }
-
