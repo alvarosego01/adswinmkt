@@ -83,25 +83,25 @@ foreach ($customFonts as $fontLabel) {
 
 // Mapeo de labels a clases CSS
 $fontClassMap = [
-  'Primary - Header title'      => 'header-title',
-  'Primary - Header Subtitle'   => 'header-subTitle',
-  'Secondary - Content title'   => 'content-title',
-  'Secondary - Content text'    => 'content-text',
-  'Tertiary - Content title'    => 'third-content-title',
-  'Tertiary - Content text'     => 'third-content-text',
-  'Forms, Navs and others'      => 'forms-navs-others',
+  'Primary - Header title'      => ['.header-title'],
+  'Primary - Header Subtitle'   => ['.header-subTitle'],
+  'Secondary - Content title'   => ['.content-title', 'li.post-card .fusion-title-heading a'],
+  'Secondary - Content text'    => ['.content-text'],
+  'Tertiary - Content title'    => ['.third-content-title'],
+  'Tertiary - Content text'     => ['.third-content-text'],
+  'Forms, Navs and others'      => ['forms-navs-others'], // Manejo especial abajo
 ];
 
 // Construir CSS dinámico
 $customCss = '';
 foreach ($foundFonts as $label => $fontData) {
   if (!empty($fontData) && isset($fontClassMap[$label]) && !empty($fontData['font-family'])) {
-    $cssClass = $fontClassMap[$label];
+    $selectors = $fontClassMap[$label];
     $fontFamily = $fontData['font-family'];
     $fontWeight = isset($fontData['variant']) ? $fontData['variant'] : 'normal';
 
     // Caso especial para "Forms, Navs and others"
-    if ($cssClass === 'forms-navs-others') {
+    if ($selectors === ['forms-navs-others']) {
       $customCss .= "html body h1,\n";
       $customCss .= "html body h2,\n";
       $customCss .= "html body h3,\n";
@@ -118,8 +118,13 @@ foreach ($foundFonts as $label => $fontData) {
       $customCss .= "html body select";
       $customCss .= " { font-family: {$fontFamily};  }\n";
     } else {
-      $customCss .= "html body .{$cssClass},\n";
-      $customCss .= "html body .{$cssClass} * { font-family: {$fontFamily} !important; font-weight: {$fontWeight} !important; }\n";
+      // Generar CSS para cada selector
+      foreach ($selectors as $selector) {
+        // Si el selector ya empieza con punto, # o es un selector complejo, usar tal cual
+        $selectorStr = (preg_match('/^[.#]/', $selector) || strpos($selector, ' ') !== false) ? $selector : ".{$selector}";
+        $customCss .= "html body {$selectorStr},\n";
+        $customCss .= "html body {$selectorStr} * { font-family: {$fontFamily} !important; font-weight: {$fontWeight} !important; }\n";
+      }
     }
   }
 }

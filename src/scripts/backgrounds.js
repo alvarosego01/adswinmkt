@@ -11,79 +11,64 @@ const contactVideo = `${origin}//wp-content/uploads/2025/07/contacto-video.mp4`;
 
 function backgroundHome() {
 
-  const videoFile = document.createElement('video');
-  // videoHome.src = homeVideo;
-  videoFile.autoplay = true;
-  videoFile.loop = true;
-  videoFile.muted = true;
-  videoFile.playsInline = true;
-  videoFile.classList.add('background-hero-video');
-
-  const homeDesktop = document.querySelector('.header-hero.home');
-  if (homeDesktop) {
-    videoFile.src = homeVideo;
-    homeDesktop.appendChild(videoFile);
-  }
-  const homeMobile = document.querySelector('.header-hero-mobile.home .header-hero-content-video-mobile');
-  if (homeMobile) {
-    videoFile.src = homeVideo;
-    homeMobile.appendChild(videoFile);
+  // Helper to create a video element with common attributes
+  function createVideoElement(src) {
+    const video = document.createElement('video');
+    video.src = src;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.classList.add('background-hero-video');
+    return video;
   }
 
-  const servicesDesktop = document.querySelector('.header-hero.services');
-  if (servicesDesktop) {
-    videoFile.src = servicesVideo;
-    servicesDesktop.appendChild(videoFile);
-  }
-  const servicesMobile = document.querySelector('.header-hero-mobile.services .header-hero-content-video-mobile');
-  if (servicesMobile) {
-    videoFile.src = servicesVideo;
-    servicesMobile.appendChild(videoFile);
-  }
+  // Array of page configs: selector and video src
+  const configs = [
+    {
+      desktopSelector: '.header-hero.home',
+      mobileSelector: '.header-hero-mobile.home .header-hero-content-video-mobile',
+      videoSrc: homeVideo
+    },
+    {
+      desktopSelector: '.header-hero.services',
+      mobileSelector: '.header-hero-mobile.services .header-hero-content-video-mobile',
+      videoSrc: servicesVideo
+    },
+    {
+      desktopSelector: '.header-hero.method-360',
+      mobileSelector: '.header-hero-mobile.method-360 .header-hero-content-video-mobile',
+      videoSrc: method360Video
+    },
+    {
+      desktopSelector: '.header-hero.about-us',
+      mobileSelector: '.header-hero-mobile.about-us .header-hero-content-video-mobile',
+      videoSrc: aboutUsVideo
+    },
+    {
+      desktopSelector: '.header-hero.blog',
+      mobileSelector: '.header-hero-mobile.blog .header-hero-content-video-mobile',
+      videoSrc: blogVideo
+    },
+    {
+      desktopSelector: '.header-hero.contact',
+      mobileSelector: '.header-hero-mobile.contact .header-hero-content-video-mobile',
+      videoSrc: contactVideo
+    }
+  ];
 
-  const method360Desktop = document.querySelector('.header-hero.method-360');
-  if (method360Desktop) {
-    videoFile.src = method360Video;
-    method360Desktop.appendChild(videoFile);
-  }
-  const method360Mobile = document.querySelector('.header-hero-mobile.method-360 .header-hero-content-video-mobile');
-  if (method360Mobile) {
-    videoFile.src = method360Video;
-    method360Mobile.appendChild(videoFile);
-  }
-
-  const aboutUsDesktop = document.querySelector('.header-hero.about-us');
-  if (aboutUsDesktop) {
-    videoFile.src = aboutUsVideo;
-    aboutUsDesktop.appendChild(videoFile);
-  }
-  const aboutUsMobile = document.querySelector('.header-hero-mobile.about-us .header-hero-content-video-mobile');
-  if (aboutUsMobile) {
-    videoFile.src = aboutUsVideo;
-    aboutUsMobile.appendChild(videoFile);
-  }
-
-  const blogDesktop = document.querySelector('.header-hero.blog');
-  if (blogDesktop) {
-    videoFile.src = blogVideo;
-    blogDesktop.appendChild(videoFile);
-  }
-  const blogMobile = document.querySelector('.header-hero-mobile.blog .header-hero-content-video-mobile');
-  if (blogMobile) {
-    videoFile.src = blogVideo;
-    blogMobile.appendChild(videoFile);
-  }
-
-  const contactDesktop = document.querySelector('.header-hero.contact');
-  if (contactDesktop) {
-    videoFile.src = contactVideo;
-    contactDesktop.appendChild(videoFile);
-  }
-  const contactMobile = document.querySelector('.header-hero-mobile.contact .header-hero-content-video-mobile');
-  if (contactMobile) {
-    videoFile.src = contactVideo;
-    contactMobile.appendChild(videoFile);
-  }
+  configs.forEach(({ desktopSelector, mobileSelector, videoSrc }) => {
+    const desktop = document.querySelector(desktopSelector);
+    if (desktop) {
+      const video = createVideoElement(videoSrc);
+      desktop.appendChild(video);
+    }
+    const mobile = document.querySelector(mobileSelector);
+    if (mobile) {
+      const video = createVideoElement(videoSrc);
+      mobile.appendChild(video);
+    }
+  });
 
 }
 

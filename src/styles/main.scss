@@ -242,6 +242,15 @@
 }
 
 .form-custom {
+
+  .fusion-form-label-wrapper,
+  .fusion-form-field {
+
+    label {
+      color: $primaryBlue !important;
+    }
+  }
+
   input {
     height: 40px !important;
     font-size: 13px !important;
@@ -439,6 +448,26 @@
       }
     }
 
+    &.services {
+      .content-col {
+
+        @include _respRange(lg, null) {
+          width: 550px !important;
+          position: relative;
+          right: -75px;
+          top: -75px;
+        }
+
+        @include _respRange(lg, 1300px) {
+          .header-subTitle p {
+            font-size: 16px !important;
+          }
+        }
+
+
+      }
+    }
+
   }
 
   &:not(.header-two-columns) {
@@ -587,6 +616,20 @@
   background-image: linear-gradient(90deg, rgba(244, 244, 244, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(244, 244, 244, 1) 100%) !important;
 }
 
+ul.fusion-checklist {
+
+  li.fusion-li-item {
+    span.icon-wrapper {
+      background-color: $primaryBlue !important;
+
+      i.fusion-li-icon {
+        color: $lightGray !important;
+      }
+    }
+  }
+
+}
+
 .image-info-content {
 
   >.fusion-builder-row.fusion-row {
@@ -723,6 +766,7 @@
     .content {
       @include _respRange(null, md) {
         margin-top: 0;
+
         >.fusion-column-wrapper {
           display: unset !important;
           padding-top: 0 !important;
@@ -741,6 +785,7 @@
         }
 
       }
+
       .image-content.hide-desktop {
         @include _respRange(md, null) {
           display: none !important;
@@ -899,6 +944,19 @@
 
   @include _respRange(1350px, 1566px) {
     font-size: 14px !important;
+  }
+
+}
+
+.custom-posts-lists {
+
+
+  li.post-card {
+
+    .fusion-title-heading a {
+      color: $primaryBlue !important;
+    }
+
   }
 
 }
