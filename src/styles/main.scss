@@ -950,7 +950,6 @@ ul.fusion-checklist {
 
 .custom-posts-lists {
 
-
   li.post-card {
 
     .fusion-title-heading a {
@@ -961,6 +960,13 @@ ul.fusion-checklist {
 
 }
 
+.custom-post-card {
+
+   .fusion-title-heading a {
+      color: $primaryBlue !important;
+    }
+
+}
 
 .micro-text.nav {
 
