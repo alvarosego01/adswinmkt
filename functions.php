@@ -102,6 +102,7 @@ foreach ($foundFonts as $label => $fontData) {
 
     // Caso especial para "Forms, Navs and others"
     if ($selectors === ['forms-navs-others']) {
+      $customCss .= "html body div,\n";
       $customCss .= "html body h1,\n";
       $customCss .= "html body h2,\n";
       $customCss .= "html body h3,\n";
@@ -115,8 +116,12 @@ foreach ($foundFonts as $label => $fontData) {
       $customCss .= "html body label,\n";
       $customCss .= "html body input,\n";
       $customCss .= "html body textarea,\n";
-      $customCss .= "html body select";
+      $customCss .= "html body select\n";
       $customCss .= " { font-family: {$fontFamily};  }\n";
+      $customCss .= "html body .font-others,\n";
+      $customCss .= "html body .font-others *\n";
+      $customCss .= " { font-family: {$fontFamily} !important;  }\n";
+
     } else {
       // Generar CSS para cada selector
       foreach ($selectors as $selector) {

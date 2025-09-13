@@ -960,3 +960,12 @@ ul.fusion-checklist {
   }
 
 }
+
+
+.micro-text.nav {
+
+  @include _respRange(lg, 1350px) {
+    font-size: 9px!important;
+  }
+
+}
